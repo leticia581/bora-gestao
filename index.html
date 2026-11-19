@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body{margin:0}[hidden]{display:none!important}</style>
+<title>BORA Crédito Gestão</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap">
+<style>
+/* Layout: fixed navy sidebar + scrolling work area; sidebar collapses to a top bar on phones. Single light theme, BORA brand. */
+:root{
+  --navy:#0F1826; --azul:#2A46C0; --azul-t:#E7ECFB; --laranja:#E86A1E; --creme:#F3E9D3; --bg:#F6F4EF; --card:#FFFFFF;
+  --ink:#0F1826; --muted:#5F6878; --line:#E9E6DF;
+  --ok:#13794A; --ok-t:#DDF4E8; --warn:#B4500F; --warn-t:#FCE9DA; --bad:#B42318; --bad-t:#FBE3E1; --info:#0E7FA6; --info-t:#E0F2F9;
+  --f:'DM Sans',-apple-system,'Segoe UI',sans-serif; color-scheme:light;
+}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 var(--f);display:flex}
+.sd{width:236px;background:var(--navy);color:#C9D1E3;display:flex;flex-direction:column;padding:22px 14px;gap:2px;flex-shrink:0;height:100%;box-sizing:border-box;position:sticky;top:0}
+.sd .lg{color:var(--creme);width:96px;margin:0 0 2px 10px}.sd .lg svg{width:100%;display:block}
+.sd .sub{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#7F8CA9;margin:6px 0 20px 10px}
+.sd a{display:flex;align-items:center;justify-content:space-between;padding:9px 12px;border-radius:9px;color:#C9D1E3;text-decoration:none;font-weight:500}
+.sd a:hover{background:#18243A}.sd a.on{background:var(--azul);color:#fff}
+.sd a:focus-visible{outline:2px solid var(--creme)}
+.sd a em{font-style:normal;background:var(--laranja);color:#fff;font-size:11px;padding:1px 8px;border-radius:99px}
+.sd .tri{margin-top:auto;background:#17233A;border-radius:12px;padding:12px;font-size:12px;color:#9AA6C0}
+.sd .tri .x{display:flex;align-items:center;gap:7px;margin-top:7px;color:#fff;font-weight:600}
+.sd .tri .x i{width:8px;height:8px;border-radius:50%;background:#3DDC97;display:block}
+.sd .tri svg{height:15px;width:auto}
+main{flex:1;min-width:0;overflow:auto;height:100%;box-sizing:border-box;padding-block:24px 40px;padding-left:max(28px,env(safe-area-inset-left,0px));padding-right:max(28px,env(safe-area-inset-right,0px))}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:18px;flex-wrap:wrap}
+.top h1{font-size:26px;letter-spacing:-.02em;margin:0;text-wrap:balance}.top .s{color:var(--muted);margin-top:2px}
+.us{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:13px}.us i{width:34px;height:34px;border-radius:50%;background:var(--laranja);color:#fff;font-style:normal;font-weight:700;display:flex;align-items:center;justify-content:center}
+.demo{display:inline-block;background:var(--creme);color:var(--navy);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;border-radius:99px;margin-left:8px;vertical-align:middle}
+.kp{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:16px}
+.k{background:var(--card);border-radius:14px;padding:14px 16px;box-shadow:0 1px 2px rgba(15,24,38,.05)}
+.k .h{font-size:12px;color:var(--muted)}.k .v{font-size:24px;font-weight:700;margin-top:3px;font-variant-numeric:tabular-nums}.k .d{font-size:12px;color:var(--azul);margin-top:2px}
+.pn{background:var(--card);border-radius:14px;padding:16px 18px;box-shadow:0 1px 2px rgba(15,24,38,.05);min-width:0}
+.pn h3{font-size:15px;margin:0 0 10px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}.pn h3 span{font-size:12px;color:var(--muted);font-weight:500}
+.g2{display:grid;grid-template-columns:1.3fr 1fr;gap:14px}.g2e{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.col{display:flex;flex-direction:column;gap:14px;min-width:0}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:640px}
+th{font-size:11px;color:var(--muted);text-align:left;font-weight:600;padding:8px 10px;border-bottom:1px solid var(--line);text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
+td{padding:10px;border-bottom:1px solid #F1EFE9;white-space:nowrap}td.r,th.r{text-align:right;font-variant-numeric:tabular-nums}
+tbody tr.cl{cursor:pointer}tbody tr.cl:hover{background:#FAF9F6}
+.tg{display:inline-block;font-size:11.5px;font-weight:600;padding:3px 9px;border-radius:99px}
+.t-nova{background:var(--azul-t);color:var(--azul)}.t-ana{background:var(--info-t);color:var(--info)}.t-pend{background:var(--warn-t);color:var(--warn)}.t-ok{background:var(--ok-t);color:var(--ok)}.t-bad{background:var(--bad-t);color:var(--bad)}.t-cin{background:#ECEAE5;color:#555}
+.wa{display:inline-flex;align-items:center;gap:5px;color:var(--ok);font-size:12.5px}.wa:before{content:"";width:8px;height:8px;border-radius:50%;background:#25D366}
+.flt{display:flex;gap:6px;flex-wrap:wrap}.flt button{all:unset;cursor:pointer;font-size:12.5px;padding:5px 11px;border-radius:99px;background:#F1EFEA;color:var(--muted)}.flt button.on{background:var(--navy);color:#fff}
+.ck{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid #F1EFE9}.ck:last-child{border:0}
+.ok{color:var(--ok);font-weight:700}.no{color:var(--bad);font-weight:700}
+.dl{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px}.dl span{display:block;font-size:11.5px;color:var(--muted)}.dl b{font-size:14.5px;font-variant-numeric:tabular-nums}
+.bt{all:unset;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;padding:10px 16px;border-radius:10px;font-weight:600;font-size:14px}
+.bt:focus-visible{outline:2px solid var(--azul);outline-offset:2px}
+.bp{background:var(--azul);color:#fff}.bo{border:1.5px solid #D8D4CB;color:var(--ink)}.br{border:1.5px solid #F2B8B3;color:var(--bad)}
+.bt[aria-disabled="true"]{opacity:.45;cursor:default}
+.sug{margin-top:12px;border-radius:10px;padding:12px 14px;font-size:13.5px}
+.chat{background:#EFEAE2;border-radius:10px;padding:10px;display:flex;flex-direction:column;gap:5px;max-height:240px;overflow:auto}
+.chat div{max-width:85%;padding:6px 9px;border-radius:8px;font-size:12.5px;background:#fff}.chat .o{align-self:flex-end;background:#D9FDD3}
+.tl{display:flex;gap:0;margin:6px 0 2px}.tl div{flex:1;text-align:center;font-size:11.5px;color:var(--muted);position:relative;padding-top:18px}
+.tl div:before{content:"";position:absolute;top:4px;left:50%;width:12px;height:12px;border-radius:50%;background:#D8D4CB;transform:translateX(-50%);z-index:1}
+.tl div:after{content:"";position:absolute;top:9px;left:-50%;width:100%;height:2px;background:#D8D4CB}.tl div:first-child:after{display:none}
+.tl div.d:before,.tl div.d:after{background:var(--azul)}.tl div.d{color:var(--ink);font-weight:600}
+.fld{display:flex;flex-direction:column;gap:4px}.fld label{font-size:12px;color:var(--muted)}
+.fld input,.fld select{font:inherit;border:1.5px solid #DCD8CF;border-radius:9px;padding:8px 10px;background:#fff;color:var(--ink);width:100%;box-sizing:border-box}
+.fld input:focus,.fld select:focus{outline:2px solid var(--azul);border-color:transparent}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px}
+.bar{height:10px;border-radius:99px;background:#EEEBE5;overflow:hidden;margin:4px 0 10px}.bar i{display:block;height:100%}
+.sw{all:unset;cursor:pointer;width:38px;height:22px;border-radius:99px;background:#D8D4CB;position:relative;flex-shrink:0}.sw:after{content:"";position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:#fff;transition:left .15s}.sw.on{background:var(--ok)}.sw.on:after{left:19px}
+.toast{position:fixed;right:max(20px,env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));background:var(--navy);color:#fff;padding:12px 16px;border-radius:12px;box-shadow:0 10px 30px rgba(15,24,38,.3);font-weight:500;z-index:20}
+.mod{position:fixed;inset:0;background:rgba(15,24,38,.45);display:flex;align-items:center;justify-content:center;z-index:30;padding:16px}
+.mod .pp{background:#fff;border-radius:16px;max-width:620px;width:100%;max-height:90vh;overflow:auto;padding:26px 28px}
+.mod h2{margin:0 0 4px;font-size:20px}.doc{font-size:13.5px;line-height:1.6;color:#333;border-top:1px solid var(--line);margin-top:14px;padding-top:14px}
+.doc p{margin:0 0 10px}
+.svgc text{font-family:var(--f)}
+@media (max-width:900px){body{display:block}.sd{position:static;width:auto;height:auto;flex-direction:row;flex-wrap:wrap;align-items:center;padding:12px 16px;gap:4px}.sd .sub,.sd .tri{display:none}.sd .lg{width:70px;margin:0 10px 0 0}.sd a{padding:6px 10px;font-size:13px}
+ main{height:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}.g2,.g2e,.form{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.sw:after{transition:none}}
+</style>
+
+</head>
+<body>
+<nav class="sd" id="nav">
+  <div class="lg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 603.7 206.7" role="img" aria-label="Bora"><path fill="currentColor" transform="matrix(1 0 0 -1 -203.72 450.65)" d="M543.32 397.66 L596.31 397.66 L596.31 380.29 C607.21 392.65 621.04 400.01 636.65 400.01 L643.42 400.01 L643.42 345.55 L636.65 345.55 C609.86 345.55 596.31 333.48 596.31 314.63 L596.31 247.51 L561.73 247.51 C551.56 247.51 543.32 255.75 543.32 265.91 Z Z M645.77 322.58 C645.77 367.33 676.10 401.19 716.73 401.19 C731.45 401.19 744.11 396.48 754.41 388.24 L754.41 397.66 L789.00 397.66 C799.17 397.66 807.41 389.42 807.41 379.25 L807.41 247.51 L754.41 247.51 L754.41 256.93 C744.11 248.68 731.45 243.97 716.73 243.97 C676.10 243.97 645.77 277.83 645.77 322.58 M754.41 322.58 C754.41 338.19 742.93 349.96 727.33 349.96 C711.72 349.96 700.24 338.19 700.24 322.58 C700.24 306.98 711.72 295.20 727.33 295.20 C742.93 295.20 754.41 306.98 754.41 322.58 Z M343.16 355.26 C355.52 363.51 363.77 379.99 363.77 397.95 C363.77 428.57 339.33 450.65 308.12 450.65 L221.10 450.65 C211.50 450.65 203.72 442.87 203.72 433.27 L203.72 400.01 L292.49 400.01 C303.36 400.01 310.04 387.49 299.72 375.28 L203.72 375.28 L203.72 327.59 L300.47 327.59 C313.34 327.59 321.90 311.79 308.22 298.15 L203.72 298.15 L203.72 264.89 C203.72 255.29 211.50 247.51 221.10 247.51 L314.60 247.51 C347.87 247.51 372.89 270.17 372.89 302.86 C372.89 326.12 360.53 347.61 343.16 355.26 Z M457.51 401.19 C410.99 401.19 375.96 367.33 375.96 322.58 C375.96 277.83 410.99 243.97 457.51 243.97 C504.03 243.97 539.06 277.83 539.06 322.58 C539.06 367.33 504.03 401.19 457.51 401.19 M457.51 279.33 C431.14 279.33 409.68 300.69 409.49 327.01 L421.15 327.01 C421.34 307.12 437.57 290.99 457.51 290.99 C477.45 290.99 493.68 307.12 493.86 327.01 L505.52 327.01 C505.34 300.69 483.87 279.33 457.51 279.33 Z"/></svg></div><div class="sub">Gestão de crédito</div>
+  <a href="#visao" data-v="visao">Visão geral</a>
+  <a href="#solicitacoes" data-v="solicitacoes">Solicitações <em id="nNovas">0</em></a>
+  <a href="#analise" data-v="analise">Análise de crédito</a>
+  <a href="#politica" data-v="politica">Política de crédito</a>
+  <a href="#contratos" data-v="contratos">Contratos e CCBs</a>
+  <a href="#carteira" data-v="carteira">Carteira e cobrança</a>
+  <a href="#leads" data-v="leads">Leads</a>
+  <a href="#simulador" data-v="simulador">Simulador</a>
+  <div class="tri">Emissão de CCB e CCI<div class="x"><i></i><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 43.99 13.55"><g fill="#FFFFFF"><path d="M16.97,10.28v-2.93h-.6c-.08,0-.15-.07-.15-.15v-1c0-.08.07-.15.15-.15h.6v-1.46c0-.08.07-.15.15-.15h1.06c.08,0,.15.07.15.15v1.46h1.1c.08,0,.15.07.15.15v1c0,.08-.07.15-.15.15h-1.1v2.66c0,.21.17.38.38.38h.72c.08,0,.15.07.15.15v.89c0,.08-.07.15-.15.15h-1.04c-.46,0-.8-.11-1.05-.34-.24-.23-.36-.55-.36-.96Z"/><path d="M26.99,11.43v-5.23c0-.08.07-.15.15-.15h1.1l.11.54h.05c.09-.11.21-.22.37-.33.33-.22.72-.33,1.15-.33.63,0,1.15.22,1.56.65.41.43.61.99.61,1.69v3.16c0,.08-.07.15-.15.15h-1.06c-.08,0-.15-.07-.15-.15v-3.05c0-.35-.11-.64-.33-.86-.22-.22-.51-.33-.86-.33s-.64.11-.86.33c-.22.22-.33.51-.33.86v3.05c0,.08-.07.15-.15.15h-1.06c-.08,0-.15-.07-.15-.15Z"/><path d="M33.11,9.36v-3.16c0-.08.07-.15.15-.15h1.06c.08,0,.15.07.15.15v3.05c0,.35.11.64.33.86.22.22.51.33.86.33s.64-.11.86-.33c.22-.22.33-.51.33-.86v-3.05c0-.08.07-.15.15-.15h1.06c.08,0,.15.07.15.15v5.23c0,.08-.07.15-.15.15h-.97c-.07,0-.13-.05-.15-.12l-.08-.42h-.05c-.09.11-.21.22-.37.33-.33.22-.72.33-1.15.33-.63,0-1.15-.22-1.56-.65-.41-.43-.61-.99-.61-1.69Z"/><path d="M39.39,9.9h1.01c.07,0,.13.04.14.11.03.13.12.25.27.37.19.15.46.23.8.23.69,0,1.03-.2,1.03-.6,0-.17-.05-.31-.16-.41-.11-.1-.31-.17-.6-.21l-.87-.14c-1.19-.2-1.79-.72-1.79-1.57,0-.48.21-.89.62-1.23s.98-.5,1.71-.5,1.3.2,1.71.6c.35.34.55.68.61,1.02.01.09-.06.17-.15.17h-1.01c-.07,0-.13-.05-.15-.12-.03-.13-.12-.26-.27-.37-.19-.14-.44-.22-.75-.22s-.55.06-.72.19c-.17.13-.25.28-.25.46,0,.27.25.44.76.51l.92.14c1.16.17,1.73.73,1.73,1.68,0,.48-.2.89-.61,1.2-.41.32-1,.48-1.77.48-.39,0-.74-.05-1.04-.15-.3-.1-.53-.22-.69-.36-.16-.14-.3-.3-.4-.48-.1-.18-.17-.33-.21-.46-.01-.06-.03-.11-.03-.16-.01-.09.06-.17.15-.17Z"/><rect x="24.61" y="6.05" width="1.36" height="5.53" rx=".15"/><path d="M25.94,4.3l-.58-.34s-.1-.03-.15,0l-.58.34s-.07.08-.07.13v.64c0,.08.07.15.15.15h1.16c.08,0,.15-.07.15-.15v-.64c0-.05-.03-.1-.07-.13Z"/><path d="M20.59,11.43v-5.23c0-.08.07-.15.15-.15h.99l.11.49h.05c.07-.09.14-.17.24-.24.22-.17.47-.25.74-.25h.93c.08,0,.15.07.15.15v1c0,.08-.07.15-.15.15h-.83c-.58,0-1.03.25-1.03,1.03v3.05c0,.08-.07.15-.15.15h-1.06c-.08,0-.15-.07-.15-.15Z"/></g><polygon fill="#1a3eb5" points="8.5 7.67 8.36 6.54 1.31 .5 .11 .17 1.23 2.18 7.45 7.67 8.5 7.67"/><polygon fill="#1a6ee8" points="6.82 13.55 6.6 12.39 7.6 6.86 12.91 4.55 13.55 4.62 10.07 7.6 6.82 13.55"/><path fill="#0fe4f5" d="M8.5,7.67l5.04-3.05c-.02-.17-.12-.32-.29-.38L.59.02c-.19-.06-.38,0-.49.14l8.4,7.5Z"/><path fill="#1a3eb5" d="M.11.17C0,.29-.04.48.05.65l6.33,12.65c.09.18.27.26.44.24l1.68-5.88L.11.17Z"/><path fill="#1a6ee8" d="M13.55,4.62l-5.04,3.05-1.68,5.88c.12-.01.24-.07.32-.18l6.33-8.44c.07-.1.09-.21.08-.32Z"/></svg>
+<span>CaaS conectado</span></div></div>
+</nav>
+<main id="main"></main>
+
+<script>
+const $=s=>document.querySelector(s);const main=$('#main');
+const BRL=v=>'R$ '+Math.round(v).toLocaleString('pt-BR');const BRL2=v=>'R$ '+v.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
+const mi=v=>v>=1e6?'R$ '+(v/1e6).toLocaleString('pt-BR',{maximumFractionDigits:1})+' mi':BRL(v);
+const pct=v=>(v*100).toLocaleString('pt-BR',{minimumFractionDigits:1,maximumFractionDigits:1})+'%';
+// ---------- dados de exemplo ----------
+const POL={imo:{tx:1.30,ltv:85,rend:30,score:600,prazo:360,alcAnalista:700000},con:{margem:35,auto:50000,prazoPub:96,prazoClt:48}};
+const SOL=[
+ {id:'2026-0142',nome:'Carlos Eduardo Mendes',prod:'imo',imovel:760000,ent:114000,prazo:360,renda:36800,score:742,origem:'WhatsApp',quando:'Hoje 10:08',st:'nova',casa:'Quadra C · Casa 12',idade:41},
+ {id:'2026-0141',nome:'Ana Paula Ribeiro',prod:'pub',valor:38900,prazo:72,org:'Prefeitura de Botucatu',origem:'WhatsApp',quando:'Hoje 09:51',st:'ok',auto:true},
+ {id:'2026-0140',nome:'Rafael Toledo',prod:'imo',imovel:700000,ent:110000,prazo:300,renda:31000,score:688,origem:'Corretor',quando:'Hoje 09:12',st:'ana',casa:'Quadra B · Casa 05',idade:36},
+ {id:'2026-0139',nome:'Juliana Prado',prod:'clt',valor:12400,prazo:36,org:'Metalúrgica Cuesta',origem:'WhatsApp',quando:'Ontem 18:40',st:'pend',auto:false},
+ {id:'2026-0138',nome:'Marcos Vieira',prod:'imo',imovel:830000,ent:128000,prazo:360,renda:41500,score:715,origem:'WhatsApp',quando:'Ontem 16:05',st:'com',casa:'Quadra D · Casa 03',idade:48},
+ {id:'2026-0137',nome:'Fernanda Lopes',prod:'pub',valor:21300,prazo:60,org:'Prefeitura de Avaré',origem:'WhatsApp',quando:'Ontem 11:30',st:'ok',auto:true},
+ {id:'2026-0136',nome:'Pedro Almeida',prod:'imo',imovel:720000,ent:80000,prazo:360,renda:22000,score:541,origem:'Corretor',quando:'19/11 15:20',st:'bad',casa:'Quadra A · Casa 08',idade:52},
+ {id:'2026-0135',nome:'Luciana Castro',prod:'imo',imovel:730000,ent:115000,prazo:360,renda:33900,score:770,origem:'WhatsApp',quando:'19/11 10:02',st:'ok',casa:'Quadra A · Casa 01',idade:39}];
+const ST={nova:['Nova','t-nova'],ana:['Em análise','t-ana'],pend:['Pendente documento','t-pend'],com:['Comitê','t-nova'],ok:['Aprovada','t-ok'],bad:['Reprovada','t-bad']};
+const PROD={imo:'Financiamento imóvel',pub:'Consignado público',clt:'Consignado CLT'};
+let CCB=[
+ {n:'0098',nome:'Luciana Castro',valor:615000,tipo:'CCI · alienação fiduciária',st:3,data:'19/11'},
+ {n:'0099',nome:'Fernanda Lopes',valor:21300,tipo:'Consignado público',st:3,data:'20/11'},
+ {n:'0100',nome:'Ana Paula Ribeiro',valor:38900,tipo:'Consignado público',st:1,data:'Hoje'},
+ {n:'0097',nome:'Bruno Siqueira',valor:598000,tipo:'CCI · alienação fiduciária',st:2,data:'17/11'},
+ {n:'0096',nome:'Tatiane Rocha',valor:630000,tipo:'CCI · alienação fiduciária',st:3,data:'14/11'}];
+const CST=['Emitida na Trinus','Assinada','Em registro','Desembolsada'];
+const REGUA=[['5 dias antes','Lembrete com boleto e Pix','WhatsApp',true],['No vencimento','Aviso do vencimento','WhatsApp',true],['1 dia de atraso','Segunda via atualizada','WhatsApp e e-mail',true],['5 dias','Contato da equipe BORA','Telefone',true],['15 dias','Proposta de acordo','WhatsApp',true],['30 dias','Notificação formal e aviso ao comitê','Carta e e-mail',false]];
+const LEADS=[['Gabriel Nunes','Simulou imóvel R$ 690 mil','WhatsApp','Hoje 08:44','Não seguiu'],['Patrícia Moura','Simulou consignado R$ 18 mil','WhatsApp','Ontem 21:10','Não seguiu'],['Diego Arantes','Pediu contato','Site','Ontem 15:02','Aguardando'],['Renata Lima','Simulou imóvel R$ 820 mil','Corretor','18/11','Retomar'],['Sérgio Pacheco','Simulou imóvel R$ 640 mil','WhatsApp','17/11','Retomar']];
+let selected='2026-0142', solFilter='todas';
+// ---------- cálculo ----------
+function calc(s){const F=s.imovel-s.ent,i=POL.imo.tx/100,n=s.prazo;const p1=F/n+F*i;const ltv=F/s.imovel;const comp=p1/s.renda;const idadeFim=s.idade+n/12;
+  const checks=[['Parcela sobre a renda (máx. '+POL.imo.rend+'%)',pct(comp),comp<=POL.imo.rend/100],['Financiado sobre o imóvel (máx. '+POL.imo.ltv+'%)',pct(ltv),ltv<=POL.imo.ltv/100+0.0005],['Score mínimo ('+POL.imo.score+')',s.score,s.score>=POL.imo.score],['Idade no fim do contrato (máx. 80)',Math.round(idadeFim)+' anos',idadeFim<=80],['Restrições no CPF','nenhuma',true]];
+  return {F,p1,ltv,comp,checks,okAll:checks.every(c=>c[2]),alc:F<=POL.imo.alcAnalista?'Analista':'Comitê de crédito'}}
+// ---------- views ----------
+function hdr(t,s){return `<div class="top"><div><h1>${t}<span class="demo">Demonstração</span></h1><div class="s">${s}</div></div><div class="us"><span>Mariana · Analista de crédito</span><i>M</i></div></div>`}
+function tag(st){return `<span class="tg ${ST[st][1]}">${ST[st][0]}</span>`}
+const V={};
+V.visao=()=>{const carteira=CCB.filter(c=>c.st===3).reduce((a,c)=>a+c.valor,0)+29.4e6;
+  const pts=[4,10,18,28,38,50],W=520,H=170;const x=i=>40+i*(W-60)/5,y=v=>H-24-v/50*(H-44);
+  const path=pts.map((v,i)=>(i?'L':'M')+x(i)+' '+y(v)).join(' ');
+  return hdr('Visão geral','O BORA Crédito em um painel: venda, carteira e risco')+`
+  <div class="kp"><div class="k"><div class="h">Solicitações no mês</div><div class="v">${SOL.length+46}</div><div class="d">71% pelo WhatsApp</div></div>
+  <div class="k"><div class="h">Contratos ativos</div><div class="v">52</div><div class="d">48 imóveis · 4 consignados</div></div>
+  <div class="k"><div class="h">Saldo da carteira</div><div class="v">${mi(carteira)}</div><div class="d">taxa média 1,30% a.m.</div></div>
+  <div class="k"><div class="h">Atraso acima de 30 dias</div><div class="v">0,4%</div><div class="d">1 contrato</div></div>
+  <div class="k"><div class="h">Margem acima do CDI</div><div class="v">R$ 74 mil/mês</div><div class="d">antes dos custos fixos</div></div></div>
+  <div class="g2"><div class="pn"><h3>Contratos de imóvel acumulados<span>piloto · meta de 50 em 6 meses</span></h3>
+  <svg class="svgc" viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Contratos acumulados por mês">
+  ${[0,25,50].map(v=>`<line x1="40" x2="${W-20}" y1="${y(v)}" y2="${y(v)}" stroke="#EEEBE5"/><text x="30" y="${y(v)+4}" font-size="11" fill="#5F6878" text-anchor="end">${v}</text>`).join('')}
+  <path d="${path} L${x(5)} ${y(0)} L${x(0)} ${y(0)}Z" fill="#E7ECFB"/><path d="${path}" fill="none" stroke="#2A46C0" stroke-width="2.5"/>
+  ${pts.map((v,i)=>`<circle cx="${x(i)}" cy="${y(v)}" r="${i===5?5:3.5}" fill="${i===5?'#E86A1E':'#2A46C0'}"/><text x="${x(i)}" y="${H-6}" font-size="11" fill="#5F6878" text-anchor="middle">mês ${i+1}</text>`).join('')}
+  <text x="${x(5)-8}" y="${y(50)-10}" font-size="12" font-weight="700" fill="#0F1826" text-anchor="end">50</text></svg></div>
+  <div class="pn"><h3>Precisa de atenção<span>agora</span></h3>
+  <div class="ck"><span>Propostas novas sem analista</span><a href="#solicitacoes" style="color:var(--azul);font-weight:600">${SOL.filter(s=>s.st==='nova').length} ›</a></div>
+  <div class="ck"><span>Aguardando comitê</span><b>${SOL.filter(s=>s.st==='com').length}</b></div>
+  <div class="ck"><span>Documento pendente</span><b>${SOL.filter(s=>s.st==='pend').length}</b></div>
+  <div class="ck"><span>CCBs aguardando assinatura</span><b>${CCB.filter(c=>c.st===0||c.st===1).length}</b></div>
+  <div class="ck"><span>Parcelas vencendo em 5 dias</span><b>23</b></div></div></div>`};
+V.solicitacoes=()=>{const list=SOL.filter(s=>solFilter==='todas'||s.prod===solFilter);
+  return hdr('Solicitações','Tudo o que chegou pelo WhatsApp e pelos corretores, num lugar só')+`
+  <div class="kp"><div class="k"><div class="h">Novas hoje</div><div class="v">${SOL.filter(s=>s.st==='nova').length+11}</div><div class="d">9 pelo WhatsApp</div></div><div class="k"><div class="h">Em análise</div><div class="v">7</div><div class="d">3 no comitê</div></div><div class="k"><div class="h">Aprovadas no mês</div><div class="v">${18+SOL.filter(s=>s.st==='ok'&&s.just).length}</div><div class="d">R$ 8,4 mi</div></div><div class="k"><div class="h">Aprovação automática</div><div class="v">61%</div><div class="d">dos consignados</div></div><div class="k"><div class="h">Tempo até a decisão</div><div class="v">26 h</div><div class="d">média do mês</div></div></div>
+  <div class="pn"><h3>Fila de propostas<div class="flt" id="flt">${[['todas','Todas'],['imo','Imóvel'],['pub','Consignado público'],['clt','Consignado CLT']].map(([k,l])=>`<button data-f="${k}" class="${solFilter===k?'on':''}">${l}</button>`).join('')}</div></h3>
+  <div class="tw"><table><thead><tr><th>Proposta</th><th>Cliente</th><th>Produto</th><th class="r">Valor</th><th>Origem</th><th>Recebida</th><th class="r">Score</th><th>Situação</th></tr></thead><tbody>
+  ${list.map(s=>`<tr class="cl" data-id="${s.id}" tabindex="0"><td><b>${s.id}</b></td><td>${s.nome}</td><td>${PROD[s.prod]}</td><td class="r">${BRL(s.prod==='imo'?s.imovel-s.ent:s.valor)}</td><td>${s.origem==='WhatsApp'?'<span class="wa">WhatsApp</span>':s.origem}</td><td>${s.quando}</td><td class="r">${s.score||'·'}</td><td>${tag(s.st)}${s.auto?' <span class="tg t-cin">auto</span>':''}</td></tr>`).join('')}
+  </tbody></table></div><p style="color:var(--muted);font-size:12.5px;margin:10px 0 0">Clique numa proposta para abrir a análise.</p></div>`};
+V.analise=()=>{const s=SOL.find(x=>x.id===selected)||SOL[0];
+  if(s.prod!=='imo'){return hdr(`Proposta ${s.id} · ${s.nome}`,PROD[s.prod]+' · '+s.org)+`<div class="g2"><div class="pn"><h3>Consignado<span>${s.origem}</span></h3><div class="dl"><div><span>Valor</span><b>${BRL(s.valor)}</b></div><div><span>Prazo</span><b>${s.prazo} parcelas</b></div><div><span>Convênio</span><b>${s.org}</b></div><div><span>Margem</span><b>dentro de ${POL.con.margem}%</b></div></div></div><div class="pn"><h3>Decisão</h3><p>${s.auto?'Aprovada automaticamente pela política: valor abaixo de '+BRL(POL.con.auto)+' e margem disponível.':'Aguardando o holerite atualizado, pedido ao cliente pelo WhatsApp.'}</p>${tag(s.st)}</div></div>`}
+  const c=calc(s);const dec=['ok','bad'].includes(s.st);
+  return hdr(`Proposta ${s.id} · ${s.nome}`,`Financiamento imobiliário · Prosperar Construtora · ${s.casa}`)+`
+  <div class="g2"><div class="col">
+   <div class="pn"><h3>Dados da proposta<span>${s.origem==='WhatsApp'?'recebida pelo WhatsApp':'enviada pelo corretor'} · ${s.quando}</span></h3><div class="dl">
+    <div><span>Valor do imóvel</span><b>${BRL(s.imovel)}</b></div><div><span>Entrada</span><b>${BRL(s.ent)}</b></div>
+    <div><span>Valor financiado</span><b>${BRL(c.F)}</b></div><div><span>Prazo e tabela</span><b>${s.prazo} meses · SAC</b></div>
+    <div><span>Taxa</span><b>${POL.imo.tx.toLocaleString('pt-BR')}% a.m.</b></div><div><span>1ª parcela</span><b>${BRL2(c.p1)}</b></div>
+    <div><span>Renda comprovada</span><b>${BRL(s.renda)}/mês</b></div><div><span>Score</span><b>${s.score}</b></div></div></div>
+   <div class="pn"><h3>Documentos<span>4 de 4 recebidos</span></h3>
+    <div class="ck"><span>Documento com foto</span><span class="ok">✓ validado</span></div><div class="ck"><span>Comprovante de renda</span><span class="ok">✓ validado</span></div>
+    <div class="ck"><span>Consulta ao SCR do Banco Central</span><span class="ok">✓ autorizada pelo cliente</span></div><div class="ck"><span>Matrícula do imóvel</span><span class="ok">✓ anexada</span></div></div>
+   <div class="pn"><h3>Conversa com o cliente<span>WhatsApp</span></h3><div class="chat"><div class="o">Oi! Vi o anúncio das casas da Prosperar</div><div>Olá! Eu sou a assistente do BORA…</div><div class="o">Quero seguir com o pedido</div><div>Sua proposta nº ${s.id} foi enviada para análise.</div></div></div>
+  </div><div class="col"><div class="pn"><h3>Política de crédito<span>Imobiliário · v1.3 · <a href="#politica" style="color:var(--azul)">editar</a></span></h3>
+   ${c.checks.map(k=>`<div class="ck"><span>${k[0]}</span><b class="${k[2]?'ok':'no'}">${k[2]?'':'✕ '}${k[1]}</b></div>`).join('')}
+   <div class="ck"><span>Alçada</span><b>${c.alc}</b></div>
+   <div class="sug" style="background:${c.okAll?'var(--azul-t)':'var(--bad-t)'}"><b style="color:${c.okAll?'var(--azul)':'var(--bad)'}">Sugestão do motor: ${c.okAll?'aprovar':'reprovar ou ajustar'}</b><br><span style="color:var(--muted)">${c.okAll?'Todos os critérios dentro da política.':'Um ou mais critérios fora da política.'}</span></div>
+   ${dec?`<div style="margin-top:14px">${tag(s.st)} ${s.st==='ok'?'<a href="#contratos" style="color:var(--azul);font-weight:600;margin-left:8px">ver CCB ›</a>':''}</div>`:
+   `<div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap"><button class="bt bp" id="apr">${c.alc==='Comitê de crédito'?'Enviar ao comitê':'Aprovar e emitir CCB'}</button><button class="bt bo" id="doc">Pedir documento</button><button class="bt br" id="rep">Reprovar</button></div>`}
+  </div></div></div>`};
+V.politica=()=>hdr('Política de crédito','As regras que o motor aplica a cada proposta. Mude um valor e veja a análise reagir.')+`
+  <div class="g2e"><div class="pn"><h3>Financiamento imobiliário<span>v1.3</span></h3><div class="form">
+   ${[['tx','Taxa de juros (% a.m.)',POL.imo.tx,'0.01'],['ltv','Financiado sobre o imóvel (máx. %)',POL.imo.ltv,'1'],['rend','Parcela sobre a renda (máx. %)',POL.imo.rend,'1'],['score','Score mínimo',POL.imo.score,'10'],['prazo','Prazo máximo (meses)',POL.imo.prazo,'12'],['alcAnalista','Alçada do analista (R$)',POL.imo.alcAnalista,'10000']].map(([k,l,v,st])=>`<div class="fld"><label for="p-${k}">${l}</label><input id="p-${k}" data-k="${k}" type="number" step="${st}" value="${v}"></div>`).join('')}
+   <div class="fld"><label for="p-tab">Tabela</label><select id="p-tab"><option>SAC</option><option>Price</option></select></div><div class="fld"><label for="p-gar">Garantia</label><select id="p-gar"><option>Alienação fiduciária · CCI</option></select></div></div></div>
+  <div class="pn"><h3>Consignado<span>v1.0 · público e CLT</span></h3>
+   <div class="ck"><span>Margem consignável</span><b>até ${POL.con.margem}% · conforme convênio</b></div><div class="ck"><span>Prazo máximo</span><b>${POL.con.prazoPub} meses público · ${POL.con.prazoClt} CLT</b></div>
+   <div class="ck"><span>Aprovação automática</span><b class="ok">até ${BRL(POL.con.auto)}</b></div><div class="ck"><span>Acima disso</span><b>analista</b></div>
+   <div class="ck"><span>Convênios ativos</span><b>Botucatu · Avaré · São Manuel</b></div></div></div>
+  <div class="pn" style="margin-top:14px"><h3>Quem aprova o quê</h3><div class="tw"><table><thead><tr><th>Faixa</th><th>Imobiliário</th><th>Consignado</th></tr></thead><tbody>
+   <tr><td>Até ${BRL(POL.con.auto)}</td><td>Analista</td><td><span class="tg t-ok">Automático</span></td></tr><tr><td>Até ${BRL(POL.imo.alcAnalista)}</td><td>Analista</td><td>Analista</td></tr><tr><td>Acima de ${BRL(POL.imo.alcAnalista)}</td><td>Comitê de crédito</td><td>Comitê</td></tr></tbody></table></div></div>`;
+V.contratos=()=>hdr('Contratos e CCBs','Emitidas e custodiadas na Trinus, acompanhadas daqui')+`
+  <div class="kp"><div class="k"><div class="h">CCBs emitidas no mês</div><div class="v">${CCB.length+4}</div><div class="d">${mi(CCB.reduce((a,c)=>a+c.valor,0)+2.4e6)}</div></div><div class="k"><div class="h">Aguardando assinatura</div><div class="v">${CCB.filter(c=>c.st<=1&&c.st===0).length+1}</div><div class="d">link enviado no WhatsApp</div></div><div class="k"><div class="h">Em registro</div><div class="v">${CCB.filter(c=>c.st===2).length}</div><div class="d">cartório de Botucatu</div></div><div class="k"><div class="h">Custódia</div><div class="v">Trinus</div><div class="d">incluída na emissão</div></div></div>
+  <div class="pn"><h3>Contratos<span>emissão · assinatura · registro · desembolso</span></h3><div class="tw"><table><thead><tr><th>Título</th><th>Cliente</th><th class="r">Valor</th><th>Tipo</th><th style="min-width:300px">Etapa</th><th></th></tr></thead><tbody>
+  ${CCB.map((c,i)=>`<tr><td><b>CCB ${c.n}</b></td><td>${c.nome}</td><td class="r">${BRL(c.valor)}</td><td>${c.tipo}</td><td><div class="tl">${CST.map((l,j)=>`<div class="${j<=c.st?'d':''}">${l.replace(' na Trinus','')}</div>`).join('')}</div></td><td><button class="bt bo" data-ccb="${i}" style="padding:6px 12px">Ver CCB</button></td></tr>`).join('')}
+  </tbody></table></div></div>`;
+V.carteira=()=>{const rows=[['Em dia',.978,'#2A46C0'],['1 a 30 dias',.018,'#E86A1E'],['31 a 90 dias',.004,'#B42318'],['Acima de 90',0,'#555']];
+  return hdr('Carteira e cobrança','Saldo, atraso e a régua que roda sozinha pelo WhatsApp')+`
+  <div class="kp"><div class="k"><div class="h">Saldo da carteira</div><div class="v">R$ 32,1 mi</div><div class="d">52 contratos</div></div><div class="k"><div class="h">Recebido no mês</div><div class="v">R$ 498 mil</div><div class="d">99,1% do previsto</div></div><div class="k"><div class="h">Atraso 1 a 30</div><div class="v">1,8%</div><div class="d">R$ 580 mil</div></div><div class="k"><div class="h">Atraso acima de 30</div><div class="v">0,4%</div><div class="d">1 contrato</div></div><div class="k"><div class="h">Provisão</div><div class="v">R$ 96 mil</div><div class="d">pela política</div></div></div>
+  <div class="g2"><div class="pn"><h3>Régua de cobrança<span>ligue ou desligue cada etapa</span></h3><div class="tw"><table style="min-width:460px"><thead><tr><th>Quando</th><th>Ação</th><th>Canal</th><th>Ativa</th></tr></thead><tbody>
+   ${REGUA.map((r,i)=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2].includes('WhatsApp')?'<span class="wa">'+r[2]+'</span>':r[2]}</td><td><button class="sw ${r[3]?'on':''}" data-rg="${i}" aria-label="Ativar ${r[0]}" aria-pressed="${r[3]}"></button></td></tr>`).join('')}</tbody></table></div></div>
+  <div class="pn"><h3>Saldo por situação<span>novembro</span></h3>${rows.map(r=>`<div style="display:flex;justify-content:space-between"><span>${r[0]}</span><b>${pct(r[1])}</b></div><div class="bar"><i style="width:${Math.max(r[1]*100,r[1]?2:0)}%;background:${r[2]}"></i></div>`).join('')}</div></div>`};
+V.leads=()=>hdr('Leads','Quem simulou e não seguiu. Um clique retoma a conversa no WhatsApp.')+`<div class="pn"><div class="tw"><table><thead><tr><th>Nome</th><th>O que fez</th><th>Origem</th><th>Quando</th><th>Situação</th><th></th></tr></thead><tbody>
+  ${LEADS.map((l,i)=>`<tr><td><b>${l[0]}</b></td><td>${l[1]}</td><td>${l[2]==='WhatsApp'?'<span class="wa">WhatsApp</span>':l[2]}</td><td>${l[3]}</td><td><span class="tg ${l[4]==='Retomar'?'t-pend':'t-cin'}">${l[4]}</span></td><td><button class="bt bo" data-lead="${i}" style="padding:6px 12px">Retomar no WhatsApp</button></td></tr>`).join('')}</tbody></table></div></div>`;
+V.simulador=()=>hdr('Simulador','Para o analista e o corretor: parcela, renda mínima e resultado do BORA')+`
+  <div class="g2e"><div class="pn"><h3>A casa e o financiamento</h3><div class="form">
+  <div class="fld"><label for="s-v">Valor do imóvel (R$)</label><input id="s-v" type="number" value="760000" step="10000"></div><div class="fld"><label for="s-e">Entrada (R$)</label><input id="s-e" type="number" value="110000" step="5000"></div>
+  <div class="fld"><label for="s-n">Prazo (meses)</label><input id="s-n" type="number" value="360" step="12"></div><div class="fld"><label for="s-i">Juros (% a.m.)</label><input id="s-i" type="number" value="1.30" step="0.05"></div>
+  <div class="fld"><label for="s-t">Tabela</label><select id="s-t"><option>SAC</option><option>Price</option></select></div><div class="fld"><label for="s-c">CDI (% a.a.)</label><input id="s-c" type="number" value="13.65" step="0.25"></div></div></div>
+  <div class="pn" id="simOut"></div></div>`;
+function simOut(){const v=+$('#s-v').value,e=+$('#s-e').value,n=+$('#s-n').value,i=+$('#s-i').value/100,cdi=Math.pow(1+$('#s-c').value/100,1/12)-1;const F=Math.max(v-e,0);
+  const p1=$('#s-t').value==='SAC'?F/n+F*i:F*i/(1-Math.pow(1+i,-n));const ltv=F/v;
+  $('#simOut').innerHTML=`<h3>Resultado</h3><div class="k" style="box-shadow:none;padding:0 0 10px"><div class="h">1ª parcela</div><div class="v" style="font-size:30px;color:var(--azul)">${BRL2(p1)}</div></div>
+   <div class="ck"><span>Valor financiado</span><b>${BRL(F)}</b></div><div class="ck"><span>Financiado sobre o imóvel</span><b class="${ltv<=POL.imo.ltv/100?'ok':'no'}">${pct(ltv)}</b></div>
+   <div class="ck"><span>Renda mínima (parcela até ${POL.imo.rend}%)</span><b>${BRL(p1/(POL.imo.rend/100))}</b></div>
+   <div class="ck"><span>Juros do 1º mês para o BORA</span><b>${BRL(F*i)}</b></div><div class="ck"><span>Margem acima do CDI no 1º mês</span><b>${BRL(F*(i-cdi))}</b></div>
+   <div class="ck"><span>Emissão da CCB na Trinus (0,60%)</span><b>${BRL(F*.006)}</b></div>
+   <button class="bt bp" style="margin-top:12px" id="toWa">Enviar simulação ao cliente pelo WhatsApp</button>`;
+  $('#toWa').onclick=()=>toast('Simulação enviada ao cliente pelo WhatsApp')}
+// ---------- navegação ----------
+function toast(t){const d=document.createElement('div');d.className='toast';d.textContent=t;document.body.appendChild(d);setTimeout(()=>d.remove(),2600)}
+function modal(html){const m=document.createElement('div');m.className='mod';m.innerHTML=`<div class="pp" role="dialog" aria-modal="true">${html}<div style="text-align:right;margin-top:16px"><button class="bt bo" id="mx">Fechar</button></div></div>`;document.body.appendChild(m);m.onclick=e=>{if(e.target===m||e.target.id==='mx')m.remove()}}
+function go(v){if(!V[v])v='solicitacoes';document.querySelectorAll('.sd a').forEach(a=>a.classList.toggle('on',a.dataset.v===v));$('#nNovas').textContent=SOL.filter(s=>s.st==='nova').length;
+  main.innerHTML=V[v]();main.scrollTop=0;bind(v)}
+function bind(v){
+  main.querySelectorAll('tr.cl').forEach(tr=>{const open=()=>{selected=tr.dataset.id;location.hash='analise';go('analise')};tr.onclick=open;tr.onkeydown=e=>{if(e.key==='Enter')open()}});
+  main.querySelectorAll('#flt button').forEach(b=>b.onclick=()=>{solFilter=b.dataset.f;go('solicitacoes')});
+  const s=SOL.find(x=>x.id===selected);
+  if($('#apr'))$('#apr').onclick=()=>{const c=calc(s);if(c.alc==='Comitê de crédito'){s.st='com';toast('Proposta enviada ao comitê de crédito');return go('analise')}
+    s.st='ok';s.just=true;CCB.unshift({n:'0'+(101+CCB.length),nome:s.nome,valor:c.F,tipo:'CCI · alienação fiduciária',st:0,data:'Agora'});toast('Aprovada. CCB enviada para emissão na Trinus e link de assinatura enviado ao cliente');go('analise')};
+  if($('#doc'))$('#doc').onclick=()=>{s.st='pend';toast('Pedido de documento enviado ao cliente pelo WhatsApp');go('analise')};
+  if($('#rep'))$('#rep').onclick=()=>{s.st='bad';toast('Proposta reprovada. Cliente avisado pelo WhatsApp');go('analise')};
+  main.querySelectorAll('[data-k]').forEach(inp=>inp.oninput=()=>{POL.imo[inp.dataset.k]=+inp.value});
+  main.querySelectorAll('[data-k]').forEach(inp=>inp.onchange=()=>toast('Política atualizada. As próximas análises já usam a nova regra'));
+  main.querySelectorAll('[data-ccb]').forEach(b=>b.onclick=()=>{const c=CCB[+b.dataset.ccb];modal(`<h2>Cédula de Crédito Bancário nº ${c.n}</h2><div style="color:var(--muted)">${CST[c.st]} · ${c.data}</div><div class="doc">
+    <p><b>Emitente:</b> ${c.nome}</p><p><b>Valor:</b> ${BRL(c.valor)} · <b>Modalidade:</b> ${c.tipo}</p><p><b>Credor:</b> instituição emissora parceira, via CaaS da Trinus. Custódia na Trinus.</p>
+    <p><b>Encargos:</b> juros conforme a política vigente do BORA na data da aprovação. Parcelas pagas por boleto ou Pix${c.tipo.startsWith('Consig')?', com desconto em folha':''}.</p>
+    <p><b>Garantia:</b> ${c.tipo.includes('fiduciária')?'alienação fiduciária do imóvel, com registro em cartório':'consignação em folha de pagamento'}.</p>
+    <p style="color:var(--muted);font-size:12.5px">Documento de demonstração. No sistema, esta tela abre o PDF original da cédula guardado na Trinus.</p></div>`)});
+  main.querySelectorAll('[data-rg]').forEach(b=>b.onclick=()=>{const r=REGUA[+b.dataset.rg];r[3]=!r[3];b.classList.toggle('on',r[3]);b.setAttribute('aria-pressed',r[3]);toast(`Etapa "${r[0]}" ${r[3]?'ativada':'desativada'}`)});
+  main.querySelectorAll('[data-lead]').forEach(b=>b.onclick=()=>toast('Mensagem de retomada enviada para '+LEADS[+b.dataset.lead][0]));
+  if(v==='simulador'){main.querySelectorAll('#s-v,#s-e,#s-n,#s-i,#s-t,#s-c').forEach(x=>x.oninput=simOut);simOut()}
+}
+document.querySelectorAll('.sd a').forEach(a=>a.onclick=e=>{go(a.dataset.v)});
+window.addEventListener('hashchange',()=>go(location.hash.slice(1)));
+go((location.hash||'#solicitacoes').slice(1));
+</script>
+
+</body>
+</html>
